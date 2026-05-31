@@ -27,33 +27,33 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-950/95 backdrop-blur-md border-b border-accent-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center">
-              <Building2 className="w-7 h-7 text-white" />
+            <div className="w-12 h-12 bg-gradient-to-br from-accent-400 to-accent-600 rounded-lg flex items-center justify-center">
+              <Building2 className="w-7 h-7 text-gray-900" />
             </div>
             <div>
-              <span className="text-2xl font-bold text-primary-500">JFLG</span>
-              <span className="text-2xl font-light text-primary-400">11</span>
+              <span className="text-2xl font-bold text-white">JFLG</span>
+              <span className="text-2xl font-light text-accent-400">11</span>
             </div>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#sobre" className="text-gray-700 hover:text-primary-500 transition-colors font-medium">Sobre</a>
-            <a href="#especificacoes" className="text-gray-700 hover:text-primary-500 transition-colors font-medium">Especificações</a>
-            <a href="#localizacao" className="text-gray-700 hover:text-primary-500 transition-colors font-medium">Localização</a>
-            <a href="#galeria" className="text-gray-700 hover:text-primary-500 transition-colors font-medium">Galeria</a>
-            <a href="#contato" className="bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-colors font-semibold">
+            <a href="#sobre" className="text-gray-300 hover:text-accent-400 transition-colors font-medium">Sobre</a>
+            <a href="#especificacoes" className="text-gray-300 hover:text-accent-400 transition-colors font-medium">Especificações</a>
+            <a href="#localizacao" className="text-gray-300 hover:text-accent-400 transition-colors font-medium">Localização</a>
+            <a href="#galeria" className="text-gray-300 hover:text-accent-400 transition-colors font-medium">Galeria</a>
+            <a href="#contato" className="bg-gradient-to-r from-accent-500 to-accent-600 text-gray-900 px-6 py-3 rounded-lg hover:from-accent-400 hover:to-accent-500 transition-all font-semibold">
               Contato
             </a>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -62,13 +62,13 @@ function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-4 border-t">
+          <nav className="md:hidden py-4 border-t border-gray-800">
             <div className="flex flex-col gap-4">
-              <a href="#sobre" className="text-gray-700 hover:text-primary-500 transition-colors font-medium">Sobre</a>
-              <a href="#especificacoes" className="text-gray-700 hover:text-primary-500 transition-colors font-medium">Especificações</a>
-              <a href="#localizacao" className="text-gray-700 hover:text-primary-500 transition-colors font-medium">Localização</a>
-              <a href="#galeria" className="text-gray-700 hover:text-primary-500 transition-colors font-medium">Galeria</a>
-              <a href="#contato" className="bg-primary-500 text-white px-6 py-3 rounded-lg text-center font-semibold">
+              <a href="#sobre" className="text-gray-300 hover:text-accent-400 transition-colors font-medium">Sobre</a>
+              <a href="#especificacoes" className="text-gray-300 hover:text-accent-400 transition-colors font-medium">Especificações</a>
+              <a href="#localizacao" className="text-gray-300 hover:text-accent-400 transition-colors font-medium">Localização</a>
+              <a href="#galeria" className="text-gray-300 hover:text-accent-400 transition-colors font-medium">Galeria</a>
+              <a href="#contato" className="bg-gradient-to-r from-accent-500 to-accent-600 text-gray-900 px-6 py-3 rounded-lg text-center font-semibold">
                 Contato
               </a>
             </div>
@@ -82,46 +82,46 @@ function Header() {
 // Hero Section
 function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-950">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
           src="/DJI_0993.webp"
           alt="Vista aérea do terreno JFLG11"
           fill
-          className="object-cover"
+          className="object-cover opacity-40"
           priority
         />
-        <div className="absolute inset-0 hero-gradient" />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-950/80 to-gray-950" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white pt-20">
         <div className="animate-fadeInUp">
-          <span className="inline-block px-4 py-2 bg-accent-500/90 text-primary-900 rounded-full text-sm font-semibold mb-6 uppercase tracking-wider">
+          <span className="inline-block px-4 py-2 bg-accent-500/20 text-accent-400 rounded-full text-sm font-semibold mb-6 uppercase tracking-wider border border-accent-500/30">
             Novo Empreendimento Logístico
           </span>
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 animate-fadeInUp delay-100">
           Galpão Logístico
-          <span className="block text-gradient mt-2">Padrão AAA</span>
+          <span className="block bg-gradient-to-r from-accent-300 via-accent-400 to-accent-500 bg-clip-text text-transparent mt-2">Padrão AAA</span>
         </h1>
 
-        <p className="text-xl sm:text-2xl text-gray-200 max-w-3xl mx-auto mb-8 animate-fadeInUp delay-200">
+        <p className="text-xl sm:text-2xl text-gray-400 max-w-3xl mx-auto mb-8 animate-fadeInUp delay-200">
           Localização estratégica no entroncamento das BRs 040 e 267, em Juiz de Fora - MG
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp delay-300">
           <a
             href="#contato"
-            className="bg-accent-500 hover:bg-accent-600 text-primary-900 px-8 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105 animate-pulse-glow"
+            className="bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-400 hover:to-accent-500 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-accent-500/25"
           >
             Solicitar Informações
           </a>
           <a
             href="#sobre"
-            className="border-2 border-white/50 hover:border-white hover:bg-white/10 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all"
+            className="border-2 border-accent-500/50 hover:border-accent-400 hover:bg-accent-500/10 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all"
           >
             Conhecer o Projeto
           </a>
@@ -129,28 +129,28 @@ function Hero() {
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 animate-fadeInUp delay-400">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+          <div className="bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 border border-accent-500/20">
             <div className="text-4xl font-bold text-accent-400">100.000</div>
-            <div className="text-gray-300 mt-1">m² de área total</div>
+            <div className="text-gray-400 mt-1">m² de área total</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+          <div className="bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 border border-accent-500/20">
             <div className="text-4xl font-bold text-accent-400">4</div>
-            <div className="text-gray-300 mt-1">Módulos independentes</div>
+            <div className="text-gray-400 mt-1">Módulos independentes</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+          <div className="bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 border border-accent-500/20">
             <div className="text-4xl font-bold text-accent-400">190</div>
-            <div className="text-gray-300 mt-1">Docas disponíveis</div>
+            <div className="text-gray-400 mt-1">Docas disponíveis</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+          <div className="bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 border border-accent-500/20">
             <div className="text-4xl font-bold text-accent-400">12m</div>
-            <div className="text-gray-300 mt-1">Pé-direito</div>
+            <div className="text-gray-400 mt-1">Pé-direito</div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <ChevronDown className="w-8 h-8 text-white/70" />
+        <ChevronDown className="w-8 h-8 text-accent-400/70" />
       </div>
     </section>
   );
@@ -182,14 +182,14 @@ function About() {
   ];
 
   return (
-    <section id="sobre" className="py-24 bg-gray-50">
+    <section id="sobre" className="py-24 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-primary-500 font-semibold uppercase tracking-wider">Sobre o Projeto</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
-            O Futuro da Logística em <span className="text-primary-500">Minas Gerais</span>
+          <span className="text-accent-400 font-semibold uppercase tracking-wider">Sobre o Projeto</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+            O Futuro da Logística em <span className="text-accent-400">Minas Gerais</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Um empreendimento logístico de alta performance, projetado para atender as demandas
             do mercado moderno com infraestrutura de ponta e localização privilegiada.
           </p>
@@ -199,13 +199,13 @@ function About() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg card-hover border border-gray-100"
+              className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 group"
             >
-              <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center text-primary-500 mb-6">
+              <div className="w-16 h-16 bg-accent-500/10 rounded-2xl flex items-center justify-center text-accent-400 mb-6 group-hover:bg-accent-500/20 transition-colors">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+              <p className="text-gray-400">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -241,12 +241,12 @@ function Specifications() {
   ];
 
   return (
-    <section id="especificacoes" className="py-24 bg-white">
+    <section id="especificacoes" className="py-24 bg-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-primary-500 font-semibold uppercase tracking-wider">Especificações</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
-            Infraestrutura de <span className="text-primary-500">Alto Padrão</span>
+          <span className="text-accent-400 font-semibold uppercase tracking-wider">Especificações</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+            Infraestrutura de <span className="text-accent-400">Alto Padrão</span>
           </h2>
         </div>
 
@@ -256,25 +256,25 @@ function Specifications() {
             {specs.map((spec, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-xl p-6 hover:bg-primary-50 transition-colors group"
+                className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-accent-500/50 transition-all group"
               >
-                <div className="text-primary-500 mb-3 group-hover:scale-110 transition-transform">
+                <div className="text-accent-400 mb-3 group-hover:scale-110 transition-transform">
                   {spec.icon}
                 </div>
                 <div className="text-sm text-gray-500 uppercase tracking-wider">{spec.label}</div>
-                <div className="text-lg font-bold text-gray-900 mt-1">{spec.value}</div>
+                <div className="text-lg font-bold text-white mt-1">{spec.value}</div>
               </div>
             ))}
           </div>
 
           {/* Differentials */}
-          <div className="bg-primary-500 rounded-3xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-6">Diferenciais do Projeto</h3>
+          <div className="bg-gradient-to-br from-accent-500/20 to-accent-600/10 rounded-3xl p-8 border border-accent-500/30">
+            <h3 className="text-2xl font-bold mb-6 text-accent-400">Diferenciais do Projeto</h3>
             <div className="space-y-4">
               {differentials.map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-accent-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-100">{item}</span>
+                  <CheckCircle2 className="w-5 h-5 text-accent-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-300">{item}</span>
                 </div>
               ))}
             </div>
@@ -288,70 +288,70 @@ function Specifications() {
 // Location Section
 function Location() {
   return (
-    <section id="localizacao" className="py-24 bg-gray-900 text-white">
+    <section id="localizacao" className="py-24 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-accent-400 font-semibold uppercase tracking-wider">Localização</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
               Posição <span className="text-accent-400">Estratégica</span>
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-gray-400 mb-8">
               Localizado no entroncamento das BRs 040 e 267, em Juiz de Fora - MG,
               o empreendimento oferece acesso privilegiado aos principais eixos logísticos do Sudeste.
             </p>
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-accent-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-accent-500/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-accent-500/30">
                   <MapPin className="w-6 h-6 text-accent-400" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg">Localização Estratégica</h4>
+                  <h4 className="font-semibold text-lg text-white">Localização Estratégica</h4>
                   <p className="text-gray-400">Entroncamento BR-040 (BH) e BR-267 (Sul de MG)</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-accent-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-accent-500/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-accent-500/30">
                   <Truck className="w-6 h-6 text-accent-400" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg">Acesso Rodoviário</h4>
+                  <h4 className="font-semibold text-lg text-white">Acesso Rodoviário</h4>
                   <p className="text-gray-400">Frente para a BR-040 com fácil acesso para carretas e veículos pesados</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-accent-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-accent-500/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-accent-500/30">
                   <Zap className="w-6 h-6 text-accent-400" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg">Infraestrutura e Operação</h4>
+                  <h4 className="font-semibold text-lg text-white">Infraestrutura e Operação</h4>
                   <p className="text-gray-400">Plataforma elevada com excelente visibilidade e amplos pátios</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-accent-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-accent-500/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-accent-500/30">
                   <Clock className="w-6 h-6 text-accent-400" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg">Mercado Logístico</h4>
+                  <h4 className="font-semibold text-lg text-white">Mercado Logístico</h4>
                   <p className="text-gray-400">Região com forte crescimento logístico e baixa taxa de vacância</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 p-6 bg-white/5 rounded-xl border border-white/10">
-              <div className="text-sm text-gray-400 mb-2">Coordenadas</div>
-              <div className="text-lg font-mono">21°42&apos;14.92&quot;S 43°27&apos;12.79&quot;O</div>
+            <div className="mt-8 p-6 bg-gray-800/50 rounded-xl border border-gray-700">
+              <div className="text-sm text-gray-500 mb-2">Coordenadas</div>
+              <div className="text-lg font-mono text-accent-400">21°42&apos;14.92&quot;S 43°27&apos;12.79&quot;O</div>
               <div className="text-sm text-gray-400 mt-2">BR-040, Km 780 - Juiz de Fora, MG</div>
             </div>
           </div>
 
           <div className="relative">
-            <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+            <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl border border-accent-500/20">
               <Image
                 src="/DJI_0997.webp"
                 alt="Vista aérea da localização"
@@ -359,7 +359,7 @@ function Location() {
                 className="object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-accent-500 text-primary-900 px-8 py-4 rounded-2xl font-bold text-lg shadow-xl">
+            <div className="absolute -bottom-6 -left-6 bg-gradient-to-r from-accent-500 to-accent-600 text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-accent-500/25">
               Km 780 - BR-040
             </div>
           </div>
@@ -381,14 +381,14 @@ function Gallery() {
   ];
 
   return (
-    <section id="galeria" className="py-24 bg-gray-50">
+    <section id="galeria" className="py-24 bg-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-primary-500 font-semibold uppercase tracking-wider">Galeria</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
-            Conheça o <span className="text-primary-500">Terreno</span>
+          <span className="text-accent-400 font-semibold uppercase tracking-wider">Galeria</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+            Conheça o <span className="text-accent-400">Terreno</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Imagens aéreas do terreno onde será construído o empreendimento logístico JFLG11.
           </p>
         </div>
@@ -397,7 +397,7 @@ function Gallery() {
           {images.map((image, index) => (
             <div
               key={index}
-              className="relative aspect-video rounded-2xl overflow-hidden shadow-lg group cursor-pointer"
+              className="relative aspect-video rounded-2xl overflow-hidden border border-gray-800 group cursor-pointer hover:border-accent-500/50 transition-all"
             >
               <Image
                 src={image.src}
@@ -405,7 +405,7 @@ function Gallery() {
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-primary-500/0 group-hover:bg-primary-500/30 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-accent-500/0 group-hover:bg-accent-500/20 transition-colors duration-300" />
             </div>
           ))}
         </div>
@@ -444,7 +444,7 @@ function Advantages() {
   ];
 
   return (
-    <section className="py-24 bg-primary-500">
+    <section className="py-24 bg-gradient-to-b from-gray-900 to-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-accent-400 font-semibold uppercase tracking-wider">Vantagens</span>
@@ -457,13 +457,13 @@ function Advantages() {
           {advantages.map((advantage, index) => (
             <div
               key={index}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-colors"
+              className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 border border-accent-500/20 hover:border-accent-500/50 hover:bg-gray-800/50 transition-all"
             >
-              <div className="w-12 h-12 bg-accent-500 rounded-xl flex items-center justify-center mb-6">
-                <CheckCircle2 className="w-6 h-6 text-primary-900" />
+              <div className="w-12 h-12 bg-gradient-to-br from-accent-400 to-accent-600 rounded-xl flex items-center justify-center mb-6">
+                <CheckCircle2 className="w-6 h-6 text-gray-900" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{advantage.title}</h3>
-              <p className="text-gray-300">{advantage.description}</p>
+              <p className="text-gray-400">{advantage.description}</p>
             </div>
           ))}
         </div>
@@ -484,80 +484,79 @@ function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log('Form submitted:', formData);
     alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
   };
 
   return (
-    <section id="contato" className="py-24 bg-white">
+    <section id="contato" className="py-24 bg-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
-            <span className="text-primary-500 font-semibold uppercase tracking-wider">Contato</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
-              Interessado no <span className="text-primary-500">JFLG11</span>?
+            <span className="text-accent-400 font-semibold uppercase tracking-wider">Contato</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+              Interessado no <span className="text-accent-400">JFLG11</span>?
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-gray-400 mb-8">
               Entre em contato conosco para mais informações sobre o empreendimento,
               disponibilidade de módulos e condições comerciais.
             </p>
 
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-primary-500" />
+                <div className="w-14 h-14 bg-accent-500/20 rounded-xl flex items-center justify-center border border-accent-500/30">
+                  <Phone className="w-6 h-6 text-accent-400" />
                 </div>
                 <div>
                   <div className="text-sm text-gray-500">Telefone</div>
-                  <div className="text-lg font-semibold text-gray-900">(32) 3xxx-xxxx</div>
+                  <div className="text-lg font-semibold text-white">(32) 3xxx-xxxx</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-primary-500" />
+                <div className="w-14 h-14 bg-accent-500/20 rounded-xl flex items-center justify-center border border-accent-500/30">
+                  <Mail className="w-6 h-6 text-accent-400" />
                 </div>
                 <div>
                   <div className="text-sm text-gray-500">E-mail</div>
-                  <div className="text-lg font-semibold text-gray-900">contato@jflg11.com.br</div>
+                  <div className="text-lg font-semibold text-white">contato@jflg11.com.br</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-primary-500" />
+                <div className="w-14 h-14 bg-accent-500/20 rounded-xl flex items-center justify-center border border-accent-500/30">
+                  <MapPin className="w-6 h-6 text-accent-400" />
                 </div>
                 <div>
                   <div className="text-sm text-gray-500">Localização</div>
-                  <div className="text-lg font-semibold text-gray-900">BR-040, Km 780 - Juiz de Fora, MG</div>
+                  <div className="text-lg font-semibold text-white">BR-040, Km 780 - Juiz de Fora, MG</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-50 rounded-3xl p-8">
+          <div className="bg-gray-900 rounded-3xl p-8 border border-gray-800">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Nome *</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Nome *</label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all"
                     placeholder="Seu nome"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">E-mail *</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">E-mail *</label>
                   <input
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all"
                     placeholder="seu@email.com"
                   />
                 </div>
@@ -565,42 +564,42 @@ function Contact() {
 
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Telefone</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Telefone</label>
                   <input
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all"
                     placeholder="(00) 00000-0000"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Empresa</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Empresa</label>
                   <input
                     type="text"
                     value={formData.company}
                     onChange={(e) => setFormData({...formData, company: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all"
                     placeholder="Nome da empresa"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Mensagem *</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Mensagem *</label>
                 <textarea
                   required
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all resize-none"
                   placeholder="Como podemos ajudar?"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-400 hover:to-accent-500 text-gray-900 px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2 shadow-lg shadow-accent-500/25"
               >
                 Enviar Mensagem
                 <ArrowRight className="w-5 h-5" />
@@ -616,16 +615,16 @@ function Contact() {
 // Footer
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-950 text-white py-12 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center">
-              <Building2 className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 bg-gradient-to-br from-accent-400 to-accent-600 rounded-lg flex items-center justify-center">
+              <Building2 className="w-6 h-6 text-gray-900" />
             </div>
             <div>
               <span className="text-xl font-bold">JFLG</span>
-              <span className="text-xl font-light text-gray-400">11</span>
+              <span className="text-xl font-light text-accent-400">11</span>
             </div>
           </div>
 
@@ -646,7 +645,7 @@ function Footer() {
 // Main Page Component
 export default function Home() {
   return (
-    <main>
+    <main className="bg-gray-950">
       <Header />
       <Hero />
       <About />
