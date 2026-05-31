@@ -10,11 +10,7 @@ import {
   ThermometerSun,
   Shield,
   CheckCircle2,
-  Phone,
-  Mail,
   ChevronDown,
-  Menu,
-  X,
   ArrowRight,
   Leaf,
   Zap,
@@ -61,59 +57,7 @@ function useCountUp(end: number, duration: number = 2000, start: boolean = false
   return count;
 }
 
-// Loading Screen Component
-function LoadingScreen({ onComplete }: { onComplete: () => void }) {
-  const [isHidden, setIsHidden] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsHidden(true);
-      setTimeout(onComplete, 800);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, [onComplete]);
-
-  return (
-    <div className={`loading-screen ${isHidden ? 'hidden' : ''}`}>
-      <div className="text-center loading-logo">
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <div className="w-16 h-16 bg-gradient-to-br from-accent-400 to-accent-600 rounded-xl flex items-center justify-center animate-glow">
-            <Building2 className="w-10 h-10 text-gray-900" />
-          </div>
-        </div>
-        <div className="flex items-center gap-1">
-          <span className="text-4xl font-bold text-white">JFLG</span>
-          <span className="text-4xl font-light text-accent-400">11</span>
-        </div>
-        <div className="mt-6 flex justify-center">
-          <div className="w-48 h-1 bg-gray-800 rounded-full overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-accent-400 to-accent-600 rounded-full animate-line" />
-          </div>
-        </div>
-        <p className="text-gray-500 text-sm mt-4 tracking-widest uppercase">Carregando</p>
-      </div>
-    </div>
-  );
-}
-
-// Particles Background
-function Particles() {
-  return (
-    <div className="particles">
-      {[...Array(20)].map((_, i) => (
-        <div
-          key={i}
-          className="particle"
-          style={{
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 15}s`,
-            animationDuration: `${15 + Math.random() * 10}s`,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
 
 // Header Component
 function Header() {
@@ -145,7 +89,7 @@ function Header() {
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            {['Sobre', 'Especificações', 'Localização', 'Galeria'].map((item) => (
+            {['Sobre', 'Especificações', 'Localização', 'Galeria', 'Vantagens'].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')}`}
@@ -154,13 +98,6 @@ function Header() {
                 {item}
               </a>
             ))}
-            <a
-              href="#contato"
-              className="relative bg-gradient-to-r from-accent-500 to-accent-600 text-gray-900 px-6 py-3 rounded-xl hover:from-accent-400 hover:to-accent-500 transition-all duration-300 font-semibold overflow-hidden group"
-            >
-              <span className="relative z-10">Contato</span>
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            </a>
           </nav>
 
           <button
@@ -177,10 +114,10 @@ function Header() {
 
         <nav className={`md:hidden overflow-hidden transition-all duration-500 ${isMenuOpen ? 'max-h-96 py-4' : 'max-h-0'}`}>
           <div className="flex flex-col gap-4 border-t border-gray-800 pt-4">
-            {['Sobre', 'Especificações', 'Localização', 'Galeria', 'Contato'].map((item, i) => (
+            {['Sobre', 'Especificações', 'Localização', 'Galeria', 'Vantagens'].map((item, i) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`#${item.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')}`}
                 className="text-gray-300 hover:text-accent-400 transition-all duration-300 font-medium"
                 style={{ transitionDelay: `${i * 50}ms` }}
                 onClick={() => setIsMenuOpen(false)}
@@ -241,7 +178,6 @@ function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-950">
-      <Particles />
 
       <div className="absolute inset-0">
         <div
@@ -252,12 +188,12 @@ function Hero() {
             src="/DJI_0993.webp"
             alt="Vista aérea do terreno JFLG11"
             fill
-            className="object-cover opacity-30"
+            className="object-cover opacity-60"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-950/70 to-gray-950" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#030712_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-gray-950/40 to-gray-950" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#030712_80%)]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white pt-20">
@@ -280,20 +216,20 @@ function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center reveal delay-300">
           <a
-            href="#contato"
+            href="#sobre"
             className="group relative bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-400 hover:to-accent-500 text-gray-900 px-10 py-5 rounded-xl font-bold text-lg transition-all duration-500 hover:scale-105 shadow-xl shadow-accent-500/20 overflow-hidden"
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
-              Solicitar Informações
+              Conhecer o Projeto
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
             <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 skew-x-12" />
           </a>
           <a
-            href="#sobre"
+            href="#especificacoes"
             className="group border-2 border-accent-500/30 hover:border-accent-400 hover:bg-accent-500/5 text-white px-10 py-5 rounded-xl font-semibold text-lg transition-all duration-500 backdrop-blur-sm"
           >
-            <span className="group-hover:text-accent-400 transition-colors">Conhecer o Projeto</span>
+            <span className="group-hover:text-accent-400 transition-colors">Ver Especificações</span>
           </a>
         </div>
 
@@ -305,12 +241,6 @@ function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <a href="#sobre" className="flex flex-col items-center gap-2 text-accent-400/70 hover:text-accent-400 transition-colors group">
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <ChevronDown className="w-6 h-6 animate-bounce" />
-        </a>
-      </div>
     </section>
   );
 }
@@ -505,13 +435,18 @@ function Location() {
 
           <div className="reveal-rotate relative">
             <div className="aspect-square rounded-3xl overflow-hidden border border-accent-500/20 shadow-2xl shadow-black/50">
-              <Image
-                src="/DJI_0997.webp"
-                alt="Vista aérea da localização"
-                fill
-                className="object-cover image-zoom"
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5000!2d-43.4535528!3d-21.7041444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localização JFLG11 - BR-040, Km 780"
+                className="absolute inset-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 pointer-events-none border-4 border-transparent rounded-3xl ring-1 ring-inset ring-accent-500/10" />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-gradient-to-r from-accent-500 to-accent-600 text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-accent-500/30 animate-float">
               Km 780 - BR-040
@@ -524,9 +459,11 @@ function Location() {
   );
 }
 
-// Gallery Section
+// Gallery Section - Automatic Carousel
 function Gallery() {
   useScrollReveal();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const images = [
     { src: "/DJI_0002.webp", alt: "Vista aérea 1" },
@@ -536,6 +473,26 @@ function Gallery() {
     { src: "/DJI_0009.webp", alt: "Vista aérea 5" },
     { src: "/DJI_0995.webp", alt: "Vista aérea 6" },
   ];
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isPaused, images.length]);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
     <section id="galeria" className="py-32 bg-gray-950 relative">
@@ -548,26 +505,98 @@ function Gallery() {
           <div className="reveal delay-200 w-24 h-1 bg-gradient-to-r from-accent-400 to-accent-600 mx-auto rounded-full" />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className={`reveal-scale relative aspect-video rounded-2xl overflow-hidden border border-gray-800 group cursor-pointer`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover transition-all duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-              <div className="absolute inset-0 border-2 border-accent-500/0 group-hover:border-accent-500/50 rounded-2xl transition-all duration-500" />
-              <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                <span className="text-sm font-medium">{image.alt}</span>
+        <div
+          className="reveal-scale relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Main Carousel */}
+          <div className="relative aspect-[16/9] max-w-5xl mx-auto rounded-3xl overflow-hidden border border-gray-800 group">
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                  index === currentSlide
+                    ? 'opacity-100 scale-100'
+                    : 'opacity-0 scale-105'
+                }`}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                  priority={index === 0}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent" />
               </div>
+            ))}
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-gray-900/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white border border-gray-700/50 hover:bg-accent-500/20 hover:border-accent-500/50 transition-all duration-300 opacity-0 group-hover:opacity-100"
+            >
+              <ChevronDown className="w-6 h-6 rotate-90" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-gray-900/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white border border-gray-700/50 hover:bg-accent-500/20 hover:border-accent-500/50 transition-all duration-300 opacity-0 group-hover:opacity-100"
+            >
+              <ChevronDown className="w-6 h-6 -rotate-90" />
+            </button>
+
+            {/* Current Image Caption */}
+            <div className="absolute bottom-6 left-6 text-white">
+              <span className="px-4 py-2 bg-gray-900/60 backdrop-blur-sm rounded-lg text-sm font-medium border border-gray-700/50">
+                {images[currentSlide].alt}
+              </span>
             </div>
-          ))}
+
+            {/* Image Counter */}
+            <div className="absolute bottom-6 right-6 text-white">
+              <span className="px-4 py-2 bg-gray-900/60 backdrop-blur-sm rounded-lg text-sm font-medium border border-gray-700/50">
+                {currentSlide + 1} / {images.length}
+              </span>
+            </div>
+          </div>
+
+          {/* Dot Indicators */}
+          <div className="flex justify-center gap-3 mt-8">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`transition-all duration-300 rounded-full ${
+                  index === currentSlide
+                    ? 'w-8 h-3 bg-gradient-to-r from-accent-400 to-accent-600'
+                    : 'w-3 h-3 bg-gray-700 hover:bg-gray-600'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Thumbnail Strip */}
+          <div className="hidden md:flex justify-center gap-4 mt-8">
+            {images.map((image, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`relative w-24 h-16 rounded-xl overflow-hidden transition-all duration-300 ${
+                  index === currentSlide
+                    ? 'ring-2 ring-accent-500 scale-110'
+                    : 'opacity-50 hover:opacity-80'
+                }`}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                />
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -588,7 +617,7 @@ function Advantages() {
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-950 relative overflow-hidden">
+    <section id="vantagens" className="py-32 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-950 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(201,162,39,0.05)_0%,_transparent_50%)]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -614,117 +643,6 @@ function Advantages() {
               <p className="text-gray-400 leading-relaxed">{advantage.description}</p>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Contact Section
-function Contact() {
-  useScrollReveal();
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    await new Promise(r => setTimeout(r, 1500));
-    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-    setIsSubmitting(false);
-    setFormData({ name: '', email: '', phone: '', company: '', message: '' });
-  };
-
-  const contacts = [
-    { icon: <Phone />, label: "Telefone", value: "(32) 3xxx-xxxx" },
-    { icon: <Mail />, label: "E-mail", value: "contato@jflg11.com.br" },
-    { icon: <MapPin />, label: "Localização", value: "BR-040, Km 780 - Juiz de Fora, MG" },
-  ];
-
-  return (
-    <section id="contato" className="py-32 bg-gray-950 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16">
-          <div>
-            <span className="reveal text-accent-400 font-semibold uppercase tracking-[0.2em] text-sm">Contato</span>
-            <h2 className="reveal delay-100 text-4xl md:text-6xl font-bold text-white mt-4 mb-6">
-              Interessado no <span className="text-accent-400">JFLG11</span>?
-            </h2>
-            <p className="reveal delay-200 text-xl text-gray-400 mb-10 leading-relaxed">
-              Entre em contato conosco para mais informações sobre o empreendimento,
-              disponibilidade de módulos e condições comerciais.
-            </p>
-
-            <div className="space-y-6">
-              {contacts.map((item, index) => (
-                <div
-                  key={index}
-                  className={`reveal flex items-center gap-5 group`}
-                  style={{ transitionDelay: `${(index + 3) * 100}ms` }}
-                >
-                  <div className="w-16 h-16 bg-accent-500/10 rounded-xl flex items-center justify-center border border-accent-500/20 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-500">
-                    <div className="text-accent-400">{item.icon}</div>
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-500 uppercase tracking-wider">{item.label}</div>
-                    <div className="text-lg font-semibold text-white">{item.value}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="reveal-right">
-            <form onSubmit={handleSubmit} className="bg-gray-900/50 rounded-3xl p-10 border border-gray-800 backdrop-blur-sm space-y-6">
-              <div className="grid sm:grid-cols-2 gap-6">
-                {[
-                  { name: 'name', label: 'Nome *', type: 'text', placeholder: 'Seu nome' },
-                  { name: 'email', label: 'E-mail *', type: 'email', placeholder: 'seu@email.com' },
-                  { name: 'phone', label: 'Telefone', type: 'tel', placeholder: '(00) 00000-0000' },
-                  { name: 'company', label: 'Empresa', type: 'text', placeholder: 'Nome da empresa' },
-                ].map((field) => (
-                  <div key={field.name}>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">{field.label}</label>
-                    <input
-                      type={field.type}
-                      required={field.label.includes('*')}
-                      value={formData[field.name as keyof typeof formData]}
-                      onChange={(e) => setFormData({...formData, [field.name]: e.target.value})}
-                      className="w-full px-5 py-4 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all duration-300"
-                      placeholder={field.placeholder}
-                    />
-                  </div>
-                ))}
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Mensagem *</label>
-                <textarea
-                  required
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  className="w-full px-5 py-4 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all duration-300 resize-none"
-                  placeholder="Como podemos ajudar?"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full relative bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-400 hover:to-accent-500 text-gray-900 px-8 py-5 rounded-xl font-bold text-lg transition-all duration-500 hover:scale-[1.02] flex items-center justify-center gap-3 shadow-xl shadow-accent-500/20 overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed group"
-              >
-                {isSubmitting ? (
-                  <div className="w-6 h-6 border-2 border-gray-900/30 border-t-gray-900 rounded-full animate-spin" />
-                ) : (
-                  <>
-                    <span>Enviar Mensagem</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </>
-                )}
-              </button>
-            </form>
-          </div>
         </div>
       </div>
     </section>
@@ -763,22 +681,16 @@ function Footer() {
 
 // Main Page Component
 export default function Home() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
   return (
-    <>
-      {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
-      <main className={`bg-gray-950 ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
-        <Header />
-        <Hero />
-        <About />
-        <Specifications />
-        <Location />
-        <Gallery />
-        <Advantages />
-        <Contact />
-        <Footer />
-      </main>
-    </>
+    <main className="bg-gray-950">
+      <Header />
+      <Hero />
+      <About />
+      <Specifications />
+      <Location />
+      <Gallery />
+      <Advantages />
+      <Footer />
+    </main>
   );
 }
