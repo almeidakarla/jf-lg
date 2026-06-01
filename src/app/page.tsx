@@ -307,7 +307,7 @@ function Specifications() {
 
   const specs = [
     { label: "Módulos", value: "4 módulos independentes", icon: <Building2 /> },
-    { label: "Área Construída", value: "≈ 100.000 m²", icon: <Ruler /> },
+    { label: "Área Bruta Locável", value: "≈ 100.000 m²", icon: <Ruler /> },
     { label: "Docas", value: "160 a 190 docas", icon: <Truck /> },
     { label: "Pé-Direito", value: "12 metros", icon: <Building2 /> },
     { label: "Capacidade do Piso", value: "6 ton/m²", icon: <Shield /> },
